@@ -1,0 +1,42 @@
+.login-section {
+    height: 99.5vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-evenly;
+
+}
+
+
+.fdmLogo {
+    width: 32vw;
+    height: 20vw;
+    border-radius: 20px;
+    background-color: white;
+    user-select: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+    height: 15vw;
+}
+
+.form-textbox {
+    width: 20vw;
+    height: 1vw;
+    border-radius: 20px;
+    padding: 1vw;
+}
+
+.button {
+    width: 15vw;
+    align-self: center;
+    border-radius: 20px;
+    height: 2vw;
+    text-align: center;
+}
