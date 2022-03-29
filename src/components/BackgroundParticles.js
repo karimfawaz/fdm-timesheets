@@ -17,7 +17,7 @@ const BackgroundParticles = () => {
         modes: {
 
           push: {
-            quantity: 2,
+            quantity: 10,
           },
 
         },
