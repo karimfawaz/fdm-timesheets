@@ -6,7 +6,6 @@ import "../styles/Login.css"
 import BackgroundParticles from "../components/BackgroundParticles";
 
 
-
 export const Login = () => {
     return (
         <div className="page">
@@ -16,8 +15,7 @@ export const Login = () => {
                 <form className="form">
                     <input type="text" placeholder="Username" className="form-textbox" />
                     <input type="text" placeholder="Password" className="form-textbox" />
-                    <input type="submit" value="Submit" className="button" />
-
+                    <input type="submit" value="Submit" className="button"/>
                 </form>
             </div>
 
