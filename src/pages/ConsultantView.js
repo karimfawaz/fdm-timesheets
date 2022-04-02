@@ -1,8 +1,9 @@
-import React from 'react'
-
+import employees from "../assets/fdm-people.jpg"
 const ConsultantView = () => {
   return (
-    <div>ConsultantView</div>
+    <div>
+      <img src={employees}/>
+    </div>
   )
 }
 
