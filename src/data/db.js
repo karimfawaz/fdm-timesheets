@@ -10,9 +10,9 @@ let TimeSheet = class {
 export let DB = {
     loggedIn: false,
     timesheets:[
-        TimeSheet("today",1,2),
-        TimeSheet("today",1,2),
-        TimeSheet("today",1,2),
+        new TimeSheet("today",1,2),
+        new TimeSheet("today",1,2),
+        new TimeSheet("today",1,2),
 
     ]
 }

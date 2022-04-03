@@ -1,0 +1,12 @@
+.leftColumn{
+    width: 25vw;
+    border: 1px red solid;
+    overflow: hidden;
+    height: 99.5vh;
+    background-color: white;
+}
+
+.laptopImg{
+    width: 25vw;
+    height: 15vw;
+}

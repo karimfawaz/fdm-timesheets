@@ -1,8 +1,7 @@
-import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { DB } from "./data/db";
-import ConsultantView from "./pages/ConsultantView";
+import {ConsultantView} from "./pages/ConsultantView";
 
 
 
@@ -17,4 +16,4 @@ export default function App() {
     );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+// ReactDOM.render(<App />, document.getElementById("root"));

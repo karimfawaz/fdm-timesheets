@@ -1,10 +1,16 @@
-import employees from "../assets/fdm-people.jpg"
-const ConsultantView = () => {
+import laptop from "../assets/fdm-laptop.jpg"
+
+import "../styles/ConsultantView.css"
+
+export const ConsultantView = () => {
   return (
-    <div>
-      <img src={employees}/>
+    <div className="mainPage">
+      <div className="leftColumn">
+        <img src={laptop} alt="laptop" className="laptopImg" />
+      </div>
+      <div className="rightColumn">
+
+      </div>
     </div>
   )
 }
-
-export default ConsultantView
