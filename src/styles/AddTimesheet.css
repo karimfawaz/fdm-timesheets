@@ -1,0 +1,43 @@
+.mainPage {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addform {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px white solid;
+    height: 40vw;
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    background-color: black;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.officeImg {
+    height: 20vw;
+    width: 35vw;
+
+}
+
+.inputFields {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form-textbox {
+    width: 20vw;
+    height: 1vw;
+    border-radius: 20px;
+    padding: 1vw;
+    text-align: center;
+}

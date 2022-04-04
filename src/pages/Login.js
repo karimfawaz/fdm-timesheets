@@ -34,7 +34,7 @@ export const Login = () => {
 
         <div className="page">
 
-            <BackgroundParticles className="particles" />
+            <BackgroundParticles />
             <div className="login-section">
 
                 <img alt="FDM Logo" src={fdmLogo} className="fdmLogo" />

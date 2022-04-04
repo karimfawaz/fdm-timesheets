@@ -1,10 +1,7 @@
 .login-section {
     height: 99.5vh;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-evenly;
 
 }
@@ -21,6 +18,7 @@
 .form {
     display: flex;
     flex-direction: column;
+    
 
     justify-content: space-evenly;
     height: 15vw;
