@@ -1,17 +1,16 @@
-import { useNavigate } from "react-router-dom"
 
 
 let TimeSheet = class {
 
-    constructor(status, from, to) {
+    constructor(status, date, hours) {
         this.status = status;
-        this.from = from;
-        this.to = to
+        this.date = date;
+        this.hours = hours;
     }
 }
 
 let User = class {
-    constructor(ID,type, name, username, password, BAN, timesheets) {
+    constructor(ID, type, name, username, password, BAN, timesheets, rate) {
         this.ID = ID;
         this.type = type;
         this.name = name;
@@ -27,12 +26,16 @@ export let DB = {
     loggedIn: false,
     currentUser: null,
     users: [
-        new User(200473224 ,"consultant", "David", "consultant1", "consultant123", 267264045,
+        new User(200473224, "consultant", "David", "consultant1", "consultant123", 267264045,
             [
-                new TimeSheet("pending" ,new Date("2022-04-04T09:00:00"), new Date("2022-04-04T13:00:00")),
+                new TimeSheet("pending", new Date("2022-04-04"), 4),
+                new TimeSheet("pending", new Date("2022-04-02"), 2),
+                new TimeSheet("approved", new Date("2022-03-24"), 4),
+                new TimeSheet("rejected", new Date("2022-03-24"), 10),
 
 
-            ]
+
+            ], 15.46
         ),
     ],
 
@@ -41,15 +44,13 @@ export let DB = {
 
 
 export const login = (username, password) => {
-    
-    if (DB.users.filter(user => username = user.username)[0].password === password) {
+
+    if (DB.users.filter(user => username === user.username)[0].password === password) {
         DB.loggedIn = true;
         DB.currentUser = DB.users.filter(user => username === user.username)[0];
-        // console.log(DB.currentUser);
-       
 
     }
-    return ("/"+DB.users.filter(user => username === user.username)[0].type)
+    return ("/" + DB.users.filter(user => username === user.username)[0].type)
 
 
 
