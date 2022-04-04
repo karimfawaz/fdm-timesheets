@@ -1,6 +1,7 @@
 import Collapsible from "react-collapsible"
 import { useNavigate } from "react-router-dom"
 import laptop from "../assets/fdm-laptop.jpg"
+import { DB, logout } from "../data/db"
 
 import "../styles/ConsultantView.css"
 
@@ -11,16 +12,22 @@ import "../styles/ConsultantView.css"
 export const ConsultantView = () => {
   let navigate = useNavigate();
   return (
+
     <div className="mainPage">
+      {console.log(DB.currentUser)}
       <div className="leftColumn">
         <img src={laptop} alt="laptop" className="laptopImg" />
+        <div className="userDetails">
+          <h3>Hey there {DB.currentUser?.name}! </h3>
+          <h4> ID: {DB.currentUser?.ID}</h4>
+        </div>
         <div className="buttons">
-          <div className="button">
-            <h3 onClick={()=>navigate("/login")}>Add Timesheet</h3>
-          </div>
-          <div className="button">
-            <h3 onClick={()=>navigate("/login")}>Logout</h3>
-          </div>
+          <h3 onClick={() => navigate("/login")} className="button">
+            Add Timesheet
+          </h3>
+          <h3 onClick={() => { navigate("/"); logout() }} className="button">
+            Logout
+          </h3>
         </div>
       </div>
       <div className="rightColumn">

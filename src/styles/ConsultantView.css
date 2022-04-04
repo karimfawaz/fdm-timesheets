@@ -19,6 +19,13 @@
     height: 15vw;
 }
 
+.userDetails{
+    text-align: center;
+    height: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .buttons {
 
     height: 10vw;
@@ -33,7 +40,8 @@
     background-color: black;
     height: 3vw;
     color: white;
-    line-height: 0.5vw;
+    line-height: 3vw;
+    width: 17vw;
 }
 
 .rightColumn {
