@@ -14,6 +14,7 @@ import { useEffect } from "react";
 export const Login = () => {
     return (
         <div className="page">
+            {console.log(DB.users[0].timesheets[0])}
             <BackgroundParticles className="particles" />
             <div className="login-section">
                 

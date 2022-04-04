@@ -1,12 +1,75 @@
-.leftColumn{
-    width: 25vw;
-    border: 1px red solid;
-    overflow: hidden;
-    height: 99.5vh;
-    background-color: white;
+.mainPage {
+    display: flex;
+
+
 }
 
-.laptopImg{
+.leftColumn {
+    width: 25vw;
+    border: 2px white solid;
+    overflow: hidden;
+    height: 95.25vh;
+    background-color: white;
+    border-radius: 20px;
+    margin: 1vw;
+}
+
+.laptopImg {
     width: 25vw;
     height: 15vw;
+}
+
+.buttons {
+
+    height: 10vw;
+    margin: 0.75vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.button{
+    cursor: pointer;
+    background-color: black;
+    height: 3vw;
+    color: white;
+    line-height: 0.5vw;
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75vw;
+
+}
+
+
+
+.collapsibleDiv {
+    margin: 2vw;
+}
+
+.collapsibleHeader {
+    background-color: white;
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    width: 70vw;
+    height: 3vw;
+    margin-bottom: 0;
+    margin-top: 3vw;
+    line-height: 3vw;
+    padding-left: 1vw;
+
+}
+
+.collapsibleBody {
+    background-color: white;
+    /* border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; */
+    height: 20vw;
+    margin-top: -1.5vw;
+    padding-left: 1vw;
+    overflow: scroll;
 }
