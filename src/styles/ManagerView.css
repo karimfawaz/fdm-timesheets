@@ -1,3 +1,66 @@
-.managerPage{
+.managerPage {
+    height: 99.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.manageTimesheets {
+    border-bottom: white solid 1px;
+    border-left: white solid 1px;
+    border-right: white dashed 4px;
+    height: 45vw;
+    width: 60vw;
+    overflow: hidden;
+    align-self: center;
+    border-radius: 20px;
+    position: absolute;
+    background-color: black;
+}
+
+.officeImgManager {
+    height: 20vw;
+    width: 100%;
+}
+
+.menuandtimesheets {
+    height: 100%;
+    display: flex;
+}
+
+.menu {
+    height: 100%;
+    width: 30%;
+    background-color: white;
+    margin-top: -5px;
+    display: flex;
+    flex-direction: column;
     
+}
+
+.managerTimesheets {
+
+    height: 100%;
+    width: 100%;
+
+}
+
+.managerDetails {
+    text-align: center;
+
+}
+
+.managerButton{
+    cursor: pointer;
+    background-color: black;
+    height: 3vw;
+    color: white;
+    line-height: 3vw;
+    width: 80%;
+    align-self: center;
+    border-radius: 20px;
+    
+    text-align: center;
+    font-size: 1vw;
 }
