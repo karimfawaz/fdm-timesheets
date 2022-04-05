@@ -15,15 +15,12 @@ export const ConsultantView = () => {
   function handleRemove(id) {
 
     const newList = timesheets.filter((item) => item.ID !== id);
-    setTimesheets(newList)
-    console.log(newList);
+    setTimesheets(newList);
+    DB.currentUser.timesheets = newList;
     
   }
-  
-  useEffect(()=>{
-  
 
-  },[timesheets])
+  
   return (
 
     <div className="consultantPage">
@@ -56,7 +53,7 @@ export const ConsultantView = () => {
                   <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} <span className="withdraw" onClick={() => {
                     handleRemove(timesheet.ID);
 
-                    DB.currentUser.timesheets = timesheets;
+
                   }}>
                     || CLICK ME TO WITHDRAW</span> </h3>
                 </div>

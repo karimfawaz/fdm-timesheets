@@ -19,7 +19,7 @@ const AddTimesheet = () => {
             ...state,
             [evt.target.name]: value
         });
-console.log(value);
+
     }
 
     let navigate = useNavigate();
