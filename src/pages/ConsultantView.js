@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Collapsible from "react-collapsible"
 import { useNavigate } from "react-router-dom"
 import laptop from "../assets/fdm-laptop.jpg"
@@ -12,6 +12,18 @@ import "../styles/ConsultantView.css"
 export const ConsultantView = () => {
   let navigate = useNavigate();
   const [timesheets, setTimesheets] = useState(DB.currentUser?.timesheets);
+  function handleRemove(id) {
+
+    const newList = timesheets.filter((item) => item.ID !== id);
+    setTimesheets(newList)
+    console.log(newList);
+    
+  }
+  
+  useEffect(()=>{
+  
+
+  },[timesheets])
   return (
 
     <div className="consultantPage">
@@ -39,17 +51,14 @@ export const ConsultantView = () => {
         <Collapsible trigger={<h3 className="collapsibleHeader">Open Timesheet Submissions</h3>} className="collapsibleDiv">
           <div className="collapsibleBody">
             <div className="timesheetList">
-              {DB.currentUser?.timesheets?.filter(timesheet => timesheet.status === "pending").map((timesheet, index) => (
-                <div key={index} className="timesheet pending">
-                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} </h3>
-                  <h2 className="withdraw" onClick={() => {
-                    DB.currentUser?.timesheets?.splice(index,1);
-    
-                    setTimesheets();
+              {timesheets.filter(timesheet => timesheet.status === "pending").map((timesheet, index) => (
+                <div key={timesheet.ID} className="timesheet pending">
+                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} <span className="withdraw" onClick={() => {
+                    handleRemove(timesheet.ID);
+
                     DB.currentUser.timesheets = timesheets;
-                    console.log(timesheets);
-                    console.log(DB.currentUser.timesheets);
-                  }}>X</h2>
+                  }}>
+                    || CLICK ME TO WITHDRAW</span> </h3>
                 </div>
               ))}
             </div>
@@ -58,9 +67,8 @@ export const ConsultantView = () => {
         <Collapsible trigger={<h3 className="collapsibleHeader">Approved Timesheets</h3>} className="collapsibleDiv">
           <div className="collapsibleBody">
             <div className="timesheetList">
-              {DB.currentUser?.timesheets?.filter(timesheet => timesheet.status === "approved").map((timesheet, index) => (
-                <div key={index} className="timesheet approved">
-
+              {timesheets.filter(timesheet => timesheet.status === "approved").map((timesheet, index) => (
+                <div key={timesheet.ID} className="timesheet approved">
                   <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} </h3>
                 </div>
               ))}
@@ -69,8 +77,8 @@ export const ConsultantView = () => {
         </Collapsible><Collapsible trigger={<h3 className="collapsibleHeader">Rejected Timesheets</h3>} className="collapsibleDiv">
           <div className="collapsibleBody">
             <div className="timesheetList">
-              {DB.currentUser?.timesheets?.filter(timesheet => timesheet.status === "rejected").map((timesheet, index) => (
-                <div key={index} className="timesheet rejected">
+              {timesheets.filter(timesheet => timesheet.status === "rejected").map((timesheet, index) => (
+                <div key={timesheet.ID} className="timesheet rejected">
                   <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status}</h3>
                 </div>
               ))}

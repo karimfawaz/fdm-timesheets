@@ -124,11 +124,10 @@
 .timesheet {
     margin-bottom: 1vw;
     padding-left: 2vw;
-    padding-right: 2vw;
-    padding-bottom: 2vw;
+    
+    
     
     border-radius: 15px;
-    height: 4vw;
     display: flex;
     justify-content: space-between;
 
@@ -137,10 +136,10 @@
 
 .timesheetDetails {
     line-height: 4vw;
+    
 
 }
 .withdraw{
-    line-height: 4vw;
     cursor: pointer;
 }
 .pending {

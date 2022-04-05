@@ -1,8 +1,16 @@
-import React from 'react'
+import office from "../assets/fdm-office.png"
+import Collapsible from "react-collapsible"
+
+import "../styles/ManagerView.css"
 
 const ManagerView = () => {
   return (
-    <div>ManagerView</div>
+    <div className="managerPage">
+      <div className="manageTimesheets">
+
+      </div>
+      <img src={office} />
+    </div>
   )
 }
 
