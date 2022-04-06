@@ -45,12 +45,17 @@ export const Login = () => {
 
                     <input type="submit" value="Submit" className="button" onClick={()=>{
                         if (DB.users.filter(user => state.username === user.username)[0].password === state.password) {
-
+                            
                             navigate(login(state.username, state.password))
                         }
-
+                        
                     }} />
 
+                    <input type="button" value="Register Consultant" className="button" onClick={()=>{
+                            navigate("/addconsultant")
+                        
+
+                    }} />
                 </div>
             </div>
 

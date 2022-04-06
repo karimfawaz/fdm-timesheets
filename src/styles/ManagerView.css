@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 
 }
 
@@ -10,9 +11,10 @@
     border-bottom: white solid 1px;
     border-left: white solid 1px;
     border-right: white dashed 4px;
-    height: 45vw;
+    
     width: 60vw;
     overflow: hidden;
+    
     align-self: center;
     border-radius: 20px;
     position: absolute;
@@ -22,28 +24,34 @@
 .officeImgManager {
     height: 20vw;
     width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
 }
 
 .menuandtimesheets {
     height: 100%;
     display: flex;
+    padding: 1vw;
 }
 
 .menu {
     height: 100%;
     width: 30%;
     background-color: white;
-    margin-top: -5px;
+    margin-left: 1vw;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .managerTimesheets {
-
+    margin-left: 2vw;
     height: 100%;
     width: 100%;
-   /* background-color: white; */
+    overflow: scroll;
+   
 
 }
 
@@ -52,7 +60,7 @@
 
 }
 
-.managerButton{
+.managerButton {
     cursor: pointer;
     background-color: black;
     height: 3vw;
@@ -61,7 +69,37 @@
     width: 80%;
     align-self: center;
     border-radius: 20px;
-    
+
     text-align: center;
     font-size: 1vw;
+}
+
+
+.managerCollapsibleHeader {
+    background-color: white;
+    width: 85%;
+
+    cursor: pointer;
+    border-radius: 10px;
+    height: 4vw;
+
+    margin-top: 3vw;
+    line-height: 4vw;
+    padding-left: 1vw;
+}
+
+.managerCollapsibleDiv {}
+
+.managerCollapsibleBody {
+    background-color: white;
+    width: 85%;
+    border-radius: 10px;
+    height: 20vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 4vw;
+    padding-top: 2vw;
+
+
+    overflow: scroll;
 }

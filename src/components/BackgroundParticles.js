@@ -30,7 +30,7 @@ const BackgroundParticles = () => {
             color: "#ffffff",
             distance: 150,
             enable: true,
-            opacity: 0.5,
+            opacity: 0.2,
             width: 1,
           },
           move: {
@@ -38,7 +38,7 @@ const BackgroundParticles = () => {
             enable: true,
             outMode: "bounce",
             random: false,
-            speed: 10,
+            speed: 5,
             straight: false,
           },
           number: {
@@ -46,10 +46,10 @@ const BackgroundParticles = () => {
               enable: true,
               area: 1000,
             },
-            value: 120,
+            value: 100,
           },
           opacity: {
-            value: 0.5,
+            value: 0.4,
           },
           shape: {
             type: "star",

@@ -47,7 +47,11 @@ const ManagerView = () => {
 
               <Collapsible trigger={<h3 className="managerCollapsibleHeader">{user.name}</h3>} className="managerCollapsibleDiv">
                 <div className="managerCollapsibleBody">
-jhkjhkjh
+                {user.timesheets.filter(timesheet => timesheet.status === "pending").map((timesheet, index) => (
+                <div key={timesheet.ID} className="timesheet pending">
+                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} </h3>
+                </div>
+              ))}
                 </div>
               </Collapsible>
 

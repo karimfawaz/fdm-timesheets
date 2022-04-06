@@ -51,26 +51,27 @@ let Finance = class {
 export let DB = {
     loggedIn: false,
     currentUser: null,
-        users: [
-            new Consultant(200473224, "consultant", "David", "david1", "consultant123", 267264045,
+    users: [
+        new Consultant(200473224, "consultant", "David", "david1", "consultant123", 267264045,
             [
                 new TimeSheet(1, "pending", new Date("2022-04-04"), 4),
                 new TimeSheet(2, "pending", new Date("2022-04-02"), 2),
                 new TimeSheet(3, "approved", new Date("2022-03-24"), 4),
                 new TimeSheet(4, "rejected", new Date("2022-03-24"), 10),
-                
-                
-                
+
+
+
             ], 15.46
-            ),
-            
-            new Manager(200345895, "manager", "Jeff", "jeff123", "manager2022"),
-            new Finance(200146789, "finance", "John", "john2022", "finance123"),
-            
-            
-        ],
-        counter: 5,
-        
+        ),
+
+        new Manager(200345895, "manager", "Jeff", "jeff123", "manager2022"),
+        new Finance(200146789, "finance", "John", "john2022", "finance123"),
+
+
+    ],
+    counter: 5,
+    idcounter: 200000000,
+
 }
 
 
@@ -95,14 +96,21 @@ export const logout = () => {
 }
 
 export const addtimesheet = (date, hours) => {
-    DB.currentUser.timesheets.push(new TimeSheet(DB.counter,"pending", new Date(date), hours));
-    DB.counter +=1; 
-    
+    DB.currentUser.timesheets.push(new TimeSheet(DB.counter, "pending", new Date(date), hours));
+    DB.counter += 1;
+
 }
 
 
 export const withdrawtimesheet = (index) => {
 
     DB.currentUser?.timesheets.splice(index, 1);
+
+}
+
+export const addConsultant = (name, username, password, BAN) => {
+    
+    DB.users.push(new Consultant(DB.idcounter, "consultant", name, username, password, BAN, [], 15.46));
+    DB.idcounter += 1;
 
 }
