@@ -11,12 +11,18 @@ const ManagerView = () => {
 
   let navigate = useNavigate();
   const [timesheets, setTimesheets] = useState(null);
+  const [timesheet, setTimesheet] = useState(null);
   function handleApprove(id) {
-    let item = timesheets.filter((item) => item.ID === id)[0];
+    let item = timesheets?.filter((item) => item.ID === id)[0];
+    setTimesheet(item);
     item.status = "approved";
-    const newList = timesheets;
-    setTimesheets(newList);
-    DB.currentUser.timesheets = newList;
+    setTimesheet(item);
+    
+    // console.log(item);
+
+    // const newList = timesheets;
+    // setTimesheets(newList);
+    // DB.currentUser.timesheets = newList;
 
   }
 
@@ -42,16 +48,21 @@ const ManagerView = () => {
           </div>
           <div className="managerTimesheets">
 
-            
+
             {DB.users.filter(user => user.type === "consultant").map((user, index) => (
 
-              <Collapsible trigger={<h3 className="managerCollapsibleHeader">{user.name}</h3>} className="managerCollapsibleDiv">
+              <Collapsible key={user.ID} trigger={<h3 className="managerCollapsibleHeader">{user.name}</h3>} className="managerCollapsibleDiv">
                 <div className="managerCollapsibleBody">
-                {user.timesheets.filter(timesheet => timesheet.status === "pending").map((timesheet, index) => (
-                <div key={timesheet.ID} className="timesheet pending">
-                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} </h3>
-                </div>
-              ))}
+                  {(timesheets === null ? user.timesheets : timesheets).filter(timesheet => timesheet.status === "pending").map((timesheet, index) => (
+                    <div key={timesheet.ID} className="timesheet pending">
+
+                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | <span onClick={() => {
+                        setTimesheets(user.timesheets);
+                        handleApprove(timesheet.ID);
+                        // console.log(timesheets);
+                      }}>Approve</span> </h3>
+                    </div>
+                  ))}
                 </div>
               </Collapsible>
 
