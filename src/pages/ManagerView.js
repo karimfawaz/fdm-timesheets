@@ -12,17 +12,14 @@ const ManagerView = () => {
   let navigate = useNavigate();
   const [timesheets, setTimesheets] = useState(null);
   const [timesheet, setTimesheet] = useState(null);
-  function handleApprove(id) {
+  function handleApprove(timesheets,id) {
+    setTimesheet(timesheets);
     let item = timesheets?.filter((item) => item.ID === id)[0];
     setTimesheet(item);
     item.status = "approved";
     setTimesheet(item);
     
-    // console.log(item);
-
-    // const newList = timesheets;
-    // setTimesheets(newList);
-    // DB.currentUser.timesheets = newList;
+   
 
   }
 
@@ -58,8 +55,9 @@ const ManagerView = () => {
 
                       <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | <span onClick={() => {
                         setTimesheets(user.timesheets);
-                        handleApprove(timesheet.ID);
-                        // console.log(timesheets);
+                        handleApprove(user.timesheets,timesheet.ID);
+                        // timesheets.filter((item) => item.ID === timesheet.ID)[0] = timesheet;
+                        
                       }}>Approve</span> </h3>
                     </div>
                   ))}
