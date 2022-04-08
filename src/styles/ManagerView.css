@@ -103,3 +103,8 @@
 
     overflow: scroll;
 }
+
+
+.clickSpan{
+    cursor: pointer;
+}

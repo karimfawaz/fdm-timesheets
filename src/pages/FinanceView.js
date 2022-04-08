@@ -44,11 +44,11 @@ const FinanceView = () => {
 
             {DB.users.filter(user => user.type === "consultant").map((user, index) => (
 
-              <Collapsible key={user.ID} trigger={<h3 className="managerCollapsibleHeader">{user.name}</h3>} className="managerCollapsibleDiv">
+              <Collapsible key={user.ID} trigger={<h3 className="managerCollapsibleHeader">{user.name} - Bank Account Number: {user.BAN}</h3>} className="managerCollapsibleDiv">
                 <div className="managerCollapsibleBody">
                   {(timesheets === null ? user.timesheets : timesheets).filter(timesheet => timesheet.status === "approved").map((timesheet, index) => (
                     <div key={timesheet.ID} className="timesheet approved">
-                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | <span onClick={
+                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} || <span className="clickSpan" onClick={
                         () => {
                           setTimesheets(user.timesheets);
                           handlePayment(user.timesheets, timesheet.ID);

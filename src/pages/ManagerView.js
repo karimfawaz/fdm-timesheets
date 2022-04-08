@@ -23,6 +23,17 @@ const ManagerView = () => {
 
   }
 
+  function handleReject(timesheets,id) {
+    setTimesheet(timesheets);
+    let item = timesheets?.filter((item) => item.ID === id)[0];
+    setTimesheet(item);
+    item.status = "rejected";
+    setTimesheet(item);
+    
+   
+
+  }
+
   return (
     <div className="managerPage">
       <BackgroundParticles />
@@ -53,12 +64,17 @@ const ManagerView = () => {
                   {(timesheets === null ? user.timesheets : timesheets).filter(timesheet => timesheet.status === "pending").map((timesheet, index) => (
                     <div key={timesheet.ID} className="timesheet pending">
 
-                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | <span onClick={() => {
+                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} || <span className="clickSpan" onClick={() => {
                         setTimesheets(user.timesheets);
                         handleApprove(user.timesheets,timesheet.ID);
                         // timesheets.filter((item) => item.ID === timesheet.ID)[0] = timesheet;
                         
-                      }}>Approve</span> </h3>
+                      }}>Approve</span> - <span className="clickSpan" onClick={() => {
+                        setTimesheets(user.timesheets);
+                        handleReject(user.timesheets,timesheet.ID);
+                        // timesheets.filter((item) => item.ID === timesheet.ID)[0] = timesheet;
+                        
+                      }}>Reject</span> </h3>
                     </div>
                   ))}
                 </div>

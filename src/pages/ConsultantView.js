@@ -66,7 +66,7 @@ export const ConsultantView = () => {
             <div className="timesheetList">
               {timesheets.filter(timesheet => timesheet.status === "approved").map((timesheet, index) => (
                 <div key={timesheet.ID} className="timesheet approved">
-                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} </h3>
+                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} - Not Paid</h3>
                 </div>
               ))}
             </div>
@@ -82,7 +82,17 @@ export const ConsultantView = () => {
             </div>
           </div>
         </Collapsible>
-
+        <Collapsible trigger={<h3 className="collapsibleHeader">Paid Timesheets</h3>} className="collapsibleDiv">
+          <div className="collapsibleBody">
+            <div className="timesheetList">
+              {timesheets.filter(timesheet => timesheet.status === "paid").map((timesheet, index) => (
+                <div key={timesheet.ID} className="timesheet paid">
+                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status}</h3>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Collapsible>
 
       </div>
     </div>
