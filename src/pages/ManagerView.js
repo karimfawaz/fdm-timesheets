@@ -64,12 +64,12 @@ const ManagerView = () => {
                   {(timesheets === null ? user.timesheets : timesheets).filter(timesheet => timesheet.status === "pending").map((timesheet, index) => (
                     <div key={timesheet.ID} className="timesheet pending">
 
-                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} || <span className="clickSpan" onClick={() => {
+                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} <br/> <span className="clickSpan" onClick={() => {
                         setTimesheets(user.timesheets);
                         handleApprove(user.timesheets,timesheet.ID);
                         // timesheets.filter((item) => item.ID === timesheet.ID)[0] = timesheet;
                         
-                      }}>Approve</span> - <span className="clickSpan" onClick={() => {
+                      }}>Approve</span> <span className="clickSpan" onClick={() => {
                         setTimesheets(user.timesheets);
                         handleReject(user.timesheets,timesheet.ID);
                         // timesheets.filter((item) => item.ID === timesheet.ID)[0] = timesheet;

@@ -107,4 +107,7 @@
 
 .clickSpan{
     cursor: pointer;
+    background-color: white;
+    padding: 0.5vw;
+    border-radius: 10px;
 }

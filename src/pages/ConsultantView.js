@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Collapsible from "react-collapsible"
 import { useNavigate } from "react-router-dom"
 import laptop from "../assets/fdm-laptop.jpg"
@@ -50,12 +50,12 @@ export const ConsultantView = () => {
             <div className="timesheetList">
               {timesheets.filter(timesheet => timesheet.status === "pending").map((timesheet, index) => (
                 <div key={timesheet.ID} className="timesheet pending">
-                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} <span className="withdraw" onClick={() => {
+                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} <br/> <span className="clickSpan" onClick={() => {
                     handleRemove(timesheet.ID);
 
 
                   }}>
-                    || CLICK ME TO WITHDRAW</span> </h3>
+                    WITHDRAW</span> </h3>
                 </div>
               ))}
             </div>
@@ -66,7 +66,7 @@ export const ConsultantView = () => {
             <div className="timesheetList">
               {timesheets.filter(timesheet => timesheet.status === "approved").map((timesheet, index) => (
                 <div key={timesheet.ID} className="timesheet approved">
-                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} - Not Paid</h3>
+                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} (Not Paid)</h3>
                 </div>
               ))}
             </div>
