@@ -44,9 +44,19 @@ export const Login = () => {
                     <input type="text" name="password" value={state.password} onChange={handleChange} placeholder="Password" className="form-textbox" required />
 
                     <input type="submit" value="Submit" className="button" onClick={()=>{
-                        if (DB.users.filter(user => state.username === user.username)[0].password === state.password) {
-                            
-                            navigate(login(state.username, state.password))
+                        if (state.username == "" || state.password ==""){
+                            alert("Please enter your username and password");
+                        }
+                        else if (DB.users.filter(user => state.username === user.username)[0]!=null ) {
+                            if (DB.users.filter(user => state.username === user.username)[0].password === state.password){
+
+                                navigate(login(state.username, state.password))
+                            }else{
+                            alert("Credentials do not match");
+
+                            }
+                        }else{
+                            alert("Credentials do not match");
                         }
                         
                     }} />

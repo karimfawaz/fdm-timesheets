@@ -35,8 +35,15 @@ const AddTimesheet = () => {
                     <input type="number" name="hours" value={state.hours} onChange={handleChange} placeholder="Hours" className="form-textbox" required />
 
                     <input type="submit" value="Submit" className="button" onClick={() => {
-                        addtimesheet(state.date, state.hours);
-                        navigate("/consultant");
+                        
+                        if(state.date ==null || state.hours==""){
+                            alert("Please Fill the Form");
+                        }
+                        else{
+
+                            addtimesheet(state.date, state.hours);
+                            navigate("/consultant");
+                        }
                         
                     }} />
                 </div>
