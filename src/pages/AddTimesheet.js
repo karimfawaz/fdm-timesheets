@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 
 
 import BackgroundParticles from "../components/BackgroundParticles"
-import { DB , addtimesheet } from "../data/db";
+import { DB, addtimesheet } from "../data/db";
 const AddTimesheet = () => {
 
     const [state, setState] = useState({
@@ -35,16 +35,18 @@ const AddTimesheet = () => {
                     <input type="number" name="hours" value={state.hours} onChange={handleChange} placeholder="Hours" className="form-textbox" required />
 
                     <input type="submit" value="Submit" className="button" onClick={() => {
-                        
-                        if(state.date ==null || state.hours==""){
+
+                        if (state.date == null || state.hours == "") {
                             alert("Please Fill the Form");
                         }
-                        else{
+                        else {
+                            if (window.confirm("Are you sure you want to add this timesheet for working " + state.hours + " on " + state.date + "?") ) {
 
-                            addtimesheet(state.date, state.hours);
-                            navigate("/consultant");
+                                addtimesheet(state.date, state.hours);
+                                navigate("/consultant");
+                            }
                         }
-                        
+
                     }} />
                 </div>
             </div>

@@ -12,25 +12,25 @@ const ManagerView = () => {
   let navigate = useNavigate();
   const [timesheets, setTimesheets] = useState(null);
   const [timesheet, setTimesheet] = useState(null);
-  function handleApprove(timesheets,id) {
+  function handleApprove(timesheets, id) {
     setTimesheet(timesheets);
     let item = timesheets?.filter((item) => item.ID === id)[0];
     setTimesheet(item);
     item.status = "approved";
     setTimesheet(item);
-    
-   
+
+
 
   }
 
-  function handleReject(timesheets,id) {
+  function handleReject(timesheets, id) {
     setTimesheet(timesheets);
     let item = timesheets?.filter((item) => item.ID === id)[0];
     setTimesheet(item);
     item.status = "rejected";
     setTimesheet(item);
-    
-   
+
+
 
   }
 
@@ -64,16 +64,20 @@ const ManagerView = () => {
                   {(timesheets === null ? user.timesheets : timesheets).filter(timesheet => timesheet.status === "pending").map((timesheet, index) => (
                     <div key={timesheet.ID} className="timesheet pending">
 
-                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} <br/> <span className="clickSpan" onClick={() => {
-                        setTimesheets(user.timesheets);
-                        handleApprove(user.timesheets,timesheet.ID);
-                        // timesheets.filter((item) => item.ID === timesheet.ID)[0] = timesheet;
-                        
+                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} <br /> <span className="clickSpan" onClick={() => {
+                        if (window.confirm("Are you sure you want to approve this timesheet?")) {
+
+                          setTimesheets(user.timesheets);
+                          handleApprove(user.timesheets, timesheet.ID);
+                          // timesheets.filter((item) => item.ID === timesheet.ID)[0] = timesheet;
+                        }
                       }}>Approve</span> <span className="clickSpan" onClick={() => {
-                        setTimesheets(user.timesheets);
-                        handleReject(user.timesheets,timesheet.ID);
-                        // timesheets.filter((item) => item.ID === timesheet.ID)[0] = timesheet;
-                        
+                        if (window.confirm("Are you sure you want to reject this timesheet?")) {
+
+                          setTimesheets(user.timesheets);
+                          handleReject(user.timesheets, timesheet.ID);
+                          // timesheets.filter((item) => item.ID === timesheet.ID)[0] = timesheet;
+                        }
                       }}>Reject</span> </h3>
                     </div>
                   ))}

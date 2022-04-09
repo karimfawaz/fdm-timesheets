@@ -48,10 +48,13 @@ const FinanceView = () => {
                 <div className="managerCollapsibleBody">
                   {(timesheets === null ? user.timesheets : timesheets).filter(timesheet => timesheet.status === "approved").map((timesheet, index) => (
                     <div key={timesheet.ID} className="timesheet approved">
-                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} <br/> <span className="clickSpan" onClick={
+                      <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} <br /> <span className="clickSpan" onClick={
                         () => {
-                          setTimesheets(user.timesheets);
-                          handlePayment(user.timesheets, timesheet.ID);
+                          if (window.confirm("Are you sure you want to process this payment to Bank Account: " + user.BAN + "?")) {
+
+                            setTimesheets(user.timesheets);
+                            handlePayment(user.timesheets, timesheet.ID);
+                          }
                         }
                       }>Process Payment</span> </h3>
                     </div>

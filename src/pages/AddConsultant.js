@@ -50,9 +50,10 @@ const AddConsultant = () => {
               alert("User already exists");
             }
             else {
+              if (window.confirm("Are you sure you want to register as a new consultant, " +state.name + "?")){
               addConsultant(state.name, state.username, state.password, state.BAN);
               navigate("/");
-
+            }
             }
           }} />
         </div>

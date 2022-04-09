@@ -17,10 +17,10 @@ export const ConsultantView = () => {
     const newList = timesheets.filter((item) => item.ID !== id);
     setTimesheets(newList);
     DB.currentUser.timesheets = newList;
-    
+
   }
 
-  
+
   return (
 
     <div className="consultantPage">
@@ -50,10 +50,12 @@ export const ConsultantView = () => {
             <div className="timesheetList">
               {timesheets.filter(timesheet => timesheet.status === "pending").map((timesheet, index) => (
                 <div key={timesheet.ID} className="timesheet pending">
-                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} <br/> <span className="clickSpan" onClick={() => {
-                    handleRemove(timesheet.ID);
+                  <h3 className="timesheetDetails">Date: {timesheet.date.toLocaleDateString("en-US")} | Hours: {timesheet.hours} | Status: {timesheet.status} <br /> <span className="clickSpan" onClick={() => {
+                    if (window.confirm("Are you sure you want to withdraw this timesheet?")) {
 
+                      handleRemove(timesheet.ID);
 
+                    }
                   }}>
                     WITHDRAW</span> </h3>
                 </div>
